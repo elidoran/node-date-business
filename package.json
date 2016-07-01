@@ -8,6 +8,7 @@
     "date",
     "business",
     "day",
+    "workday",
     "holiday"
   ],
   "author": "Eli Doran <eli+npm@elidoran.com>",
