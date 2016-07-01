@@ -1,0 +1,36 @@
+{
+  "name": "@date/business",
+  "version": "0.1.0",
+  "description": "Calculate business day dates optionally considering holidays.",
+  "main": "lib",
+  "keywords": [
+    "dates",
+    "date",
+    "business",
+    "day",
+    "holiday"
+  ],
+  "author": "Eli Doran <eli+npm@elidoran.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "coffee --bare --compile lib",
+    "clean": "rm -rf lib/*.js",
+    "prepublish": "npm run compile",
+    "postpublish": "npm run clean",
+    "test": "mocha --compilers coffee:coffee-script/register --reporter spec --bail --check-leaks test/lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/elidoran/node-date-business.git"
+  },
+  "bugs": "http://github.com/elidoran/node-date-business/issues",
+  "devDependencies": {
+    "@date/holidays-us": "^0.1.0",
+    "coffee-script": "^1.10.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=0.10"
+  }
+}
