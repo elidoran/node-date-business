@@ -19,15 +19,16 @@ npm install @date/business --save
 // use @date/holidays instance when calculating business days
 // it's optional. don't set a holidays instance and it only considers Mon-Fri
 var biz = require('@date/business')({
-  holidays: require('@date/holidays-us')
+  // use USA bank holidays
+  holidays: require('@date/holidays-us').bank()
 })
 
-// New Year's Day 2016 is a Friday, a holiday
+// New Year's Day 2016 is a Friday, a bank holiday
 var date = new Date(2016, 0, 1)
 biz.isBusinessDay(date) // false, it's a holiday
 
 // nextBusinessDay() will change it to
-// Monday, the 4th, after New Year's (Friday), which is a business day
+// Monday, the 4th, which is a business day
 biz.nextBusinessDay(date)
 biz.isBusinessDay(date) // true
 
@@ -36,7 +37,7 @@ biz.addBusinessDays(date, 2)
 biz.isBusinessDay(date) // true
 
 // move it to the next Monday, it skips both Saturday and Sunday
-biz.addBusinessDays(date, 3)
+biz.addBusinessDays(date, 3) // three would be Saturday, but it skips to Monday
 biz.isBusinessDay(date) // true
 
 // 5 business days would be the next Monday, which is
